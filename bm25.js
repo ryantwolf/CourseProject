@@ -26,7 +26,7 @@ class BM25 {
                 tokens.push(term);
             }
         }
-        // TODO: Stemming
+        // Next Steps?: Stemming
         return tokens;
     }
     
@@ -113,8 +113,7 @@ class BM25 {
     }
 }
 
-
-
-const bm25 = new BM25()
-bm25.addDocumentList(["Hello there", "Small Cat", "The Tall Dog", "The Tallest Smallest Cat", "The Tallest Smallest DOG"]);
-console.log(bm25.search("tall small cat dog"));
+// // Example of usage:
+// const bm25 = new BM25()
+// bm25.addDocumentList(["Hello there", "Small Cat", "The Tall Dog", "The Tallest Smallest Cat", "The Tallest Smallest DOG"]);
+// console.log(bm25.search("tall small cat dog"));
