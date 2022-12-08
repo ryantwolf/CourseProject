@@ -1,6 +1,10 @@
 let bm = new BM25();
 let html_title_map = {};
 
+/**
+ * Load all bookmarks and add them to the BM25 index
+ * Called when the user clicks the "Update" button
+ */
 async function loadBookMarks() {
     chrome.bookmarks.getTree(async (bookmarks) => {
         let urlList = bookMarkBFS(bookmarks[0], search);
@@ -30,6 +34,10 @@ async function loadBookMarks() {
     });
 }
 
+/**
+ * Search the BM25 index for the query
+ * Called when the user clicks the "Search" button
+ */
 async function bookMarkSearch() {
     let search = document.getElementById('query').value;    
     console.log("Searching for: " + search);
@@ -40,15 +48,22 @@ async function bookMarkSearch() {
         let result = results[i];
         let [title, url] = html_title_map[result.docID];
         // Add a link to the bookmark in the results div
+        let list_element = document.createElement('li');
         let link = document.createElement('a');
         link.setAttribute('href', url);
         link.setAttribute('target', '_blank');
         link.setAttribute('class', 'result');
         link.textContent = title;
-        document.getElementById('results').appendChild(link);
+        list_element.appendChild(link);
+        document.getElementById('results').appendChild(list_element);
     }
 }
 
+/**
+ * Performs a BFS on the bookmark tree and converts it to a list of [title, url] pairs
+ * @param {BookMarkNode[]} bookmarkNode 
+ * @returns A list of [title, url] pairs for all webpages in the bookmark tree
+ */
 function bookMarkBFS(bookmarkNode) {
     let results = [];
     let queue = [];
