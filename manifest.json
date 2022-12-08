@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "CS 410 Chrome Extension",
     "version": "1.0.0",
     "content_scripts": [
@@ -8,11 +8,14 @@
             "js": ["Content.js"]
         }
     ],
-    "browser_action": {
+    "action": {
         "default_popup": "Popup.html",
-        "default_title" : "Boulder Buddies"
+        "default_title" : "410 Projects"
     },
     "permissions": [
         "bookmarks"
+    ],
+    "host_permissions": [
+        "https://*/"
     ]
 }

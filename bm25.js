@@ -62,7 +62,9 @@ class BM25 {
             }
         }
         let doc = {docID: this.totalDocumentCount, dl: documentLength, terms: docTerms, termsSet: uniqueTerms, fullText: doc_text};
-        this.documents[this.totalDocumentCount] = doc;  
+        this.documents[this.totalDocumentCount] = doc;
+        
+        return doc.docID;
     }
     
     addDocumentList(doc_text_list) {
@@ -98,7 +100,6 @@ class BM25 {
                 }
                 doc_score += memoize_term_score[queryToken]
             }
-            console.log(doc.fullText, doc_score)
             if (doc_score > 0) {
                 results.push({doc_score: doc_score, doc: doc});
             }
