@@ -31,3 +31,6 @@ More in-depth documentation is written above the functions in each of the files.
 ## Groupwork Division
 - Neal and Ryan worked on implementing the UI and bookmark fetching functionality for the extension.
 - Meghan and Eileen worked on implementing the BM25 algorithm in JavaScript.
+
+### Video Demo
+You can find our video demo [here](https://drive.google.com/file/d/19N98OG1Qd0McO1ENmkousQ4_1yCRCW27/view?usp=sharing).
